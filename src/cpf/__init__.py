@@ -13,7 +13,7 @@ def validar_1digito(cpf):
     if int(cpf[9]) == resto:
         return resto
     else:
-        return False
+        raise ValueError("CPF INVALIDO")
         # vc nao pode dar um return dentro do for,
         # a nao ser que queira parar o processo do for
 
@@ -36,7 +36,7 @@ def validar_2digito(cpf):
     if int(cpf[10]) == resto:
         return resto
     else:
-        return False
+        raise ValueError("CPF INVALIDO")
     
     
 
@@ -56,8 +56,4 @@ def validar_cpf(cpf):
     else:
         raise ValueError('CPF INVALIDO')
     
-
-t = input('cpf: ')
-print(validar_1digito(t))
-print(validar_2digito(t))
-52998224725
+    return cpf
