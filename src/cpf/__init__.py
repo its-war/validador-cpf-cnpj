@@ -14,26 +14,21 @@ def validar_1digito(cpf):
         return resto
     else:
         return False
-    
-
         # vc nao pode dar um return dentro do for,
         # a nao ser que queira parar o processo do for
 
 
-def validar_2digito(cpf, primeiro_digito):
+def validar_2digito(cpf):
     # ESQUEÇA QUE EXISTE O SEGUNDO DIGITO
     # pra vc ele so existe quando vc fizer o primeiro
     validar_1digito(cpf)
-    multiplicador = 2
     multiplicadores = [11,10,9,8,7,6,5,4,3,2]
     resultados = []
     for c in range(len(cpf)):
-        if c >= 9:
+        if c >= 10:
             break
         resultado = int(cpf[c]) * multiplicadores[c]
-        resultados.append(resultado)
-        resultados.append(int(primeiro_digito) * multiplicador)
-        
+        resultados.append(resultado)     
     soma = sum(resultados)
     resto = (soma * 10) % 11
     if resto == 10:
@@ -56,12 +51,6 @@ def validar_cpf(cpf):
     cpf.replace('-', '')
     if len(cpf) == 11:
         primeiro_digito = validar_1digito(cpf)
-    if primeiro_digito != int(cpf[9]):
-        return ValueError('CPF INVALIDO')
-    
-    segundo_digito = validar_2digito(cpf)
-    if segundo_digito != int(cpf[10]):
-        return ValueError('CPF INVALIDO')
         # depois de pegar o primeiro digito, deve comparar no cpf, se está correto
         # depois deve jogar dentro da função do segundo digito
     else:
@@ -70,5 +59,5 @@ def validar_cpf(cpf):
 
 t = input('cpf: ')
 print(validar_1digito(t))
-print(validar_2digito(t, validar_1digito))
+print(validar_2digito(t))
 52998224725
