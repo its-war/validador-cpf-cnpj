@@ -2,6 +2,7 @@ from src import cnpj
 from time import sleep
 import platform
 import os
+from src import cpf
 
 
 def limpar_terminal():
@@ -32,8 +33,7 @@ def menu():
                 limpar_terminal()
                 cpf_text = input('Digite o CPF: ')
                 try:
-                    # use a função de validar cpf aqui
-                    pass
+                    cpf.validar_cpf(cpf_text)
                 except ValueError:
                     print('CPF INVALIDO')
                     print('Entre em contato com a receita federal.')

@@ -51,6 +51,13 @@ def validar_cpf(cpf):
     cpf.replace('-', '')
     if len(cpf) == 11:
         primeiro_digito = validar_1digito(cpf)
+        if primeiro_digito != int(cpf[9]):
+            raise ValueError('CPF INVALIDO')
+        segundo_digito = validar_2digito(cpf)
+        if segundo_digito != int(cpf[10]):
+            raise ValueError('CPF INVALIDO')
+    
+    
         # depois de pegar o primeiro digito, deve comparar no cpf, se está correto
         # depois deve jogar dentro da função do segundo digito
     else:
