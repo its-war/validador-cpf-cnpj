@@ -1,8 +1,8 @@
 from src import cnpj
+from src import cpf
 from time import sleep
 import platform
 import os
-from src import cpf
 
 
 def limpar_terminal():
