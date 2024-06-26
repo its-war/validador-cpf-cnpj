@@ -59,6 +59,7 @@ def menu():
                     cnpjs_validados += 1
                     break
         elif op == '3' or op == 'sair':
+            limpar_terminal()
             print(f'CPFs validados: {cpfs_validados}')
             print(f'CPFs invalidados: {cpfs_invalidados}')
             print()

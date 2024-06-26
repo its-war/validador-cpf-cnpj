@@ -42,8 +42,8 @@ def validar_cpf(cpf):
     :type cpf: str
     :return:
     """
-    cpf.replace('.', '')
-    cpf.replace('-', '')
+    cpf = cpf.replace('.', '')
+    cpf = cpf.replace('-', '')
     if len(cpf) == 11:
         primeiro_digito = validar_1digito(cpf)
         if primeiro_digito != int(cpf[9]):
