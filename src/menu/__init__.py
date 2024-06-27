@@ -21,10 +21,11 @@ def menu():
 
     while True:
         limpar_terminal()
-        print('             MENU')
+        print(6 * '-' + 'MENU' + '-' * 6)
         print('1 — Validar CPF')
         print('2 — Validar CNPJ')
         print('3 — Sair')
+        print()
 
         op = input('Digite a opção: ')
 
@@ -59,15 +60,19 @@ def menu():
                     cnpjs_validados += 1
                     break
         elif op == '3' or op == 'sair':
+            segundos_sair = 5
+            while segundos_sair >= 0:
+                limpar_terminal()
+                print(f'CPFs validados: {cpfs_validados}')
+                print(f'CPFs invalidados: {cpfs_invalidados}')
+                print()
+                print(f'CNPJs validados: {cnpjs_validados}')
+                print(f'CNPJs invalidados: {cnpjs_invalidados}')
+                print()
+                print(f'Saindo em {segundos_sair} segundos...')
+                sleep(1)
+                segundos_sair -= 1
             limpar_terminal()
-            print(f'CPFs validados: {cpfs_validados}')
-            print(f'CPFs invalidados: {cpfs_invalidados}')
-            print()
-            print(f'CNPJs validados: {cnpjs_validados}')
-            print(f'CNPJs invalidados: {cnpjs_invalidados}')
-            print()
-            print('Saindo em 5 segundos...')
-            sleep(5)
             exit(0)
         else:
             print('Opcao Invalida')
